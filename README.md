@@ -2,7 +2,7 @@
 
 개인 취미 프로젝트(게임·퍼즐)를 모아 보여주는 원페이지 허브 사이트.
 
-- 라이브: https://www.shinhocheol.com/hobby (직접 주소: https://hobby-hub.vercel.app)
+- 라이브: https://www.shinhocheol.com/hobby (직접 주소: https://hobby-hub-seven.vercel.app)
 - 정적 HTML 단일 파일(`index.html`), 빌드 과정 없음
 - `master`에 푸시하면 Vercel이 자동 배포
 - shinhocheol.com 허브(`project-hub` 리포)의 `vercel.json`이 `/hobby`를 이 배포로 프록시한다
