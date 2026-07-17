@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/hobby", "destination": "/index.html" },
+    { "source": "/hobby/:path*", "destination": "/:path*" }
+  ]
+}

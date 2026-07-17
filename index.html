@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개인 취미 프로젝트</title>
+<meta name="description" content="재미로 만들어 본 게임과 퍼즐 모음.">
+<meta property="og:title" content="개인 취미 프로젝트">
+<meta property="og:description" content="재미로 만들어 본 게임과 퍼즐 모음.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23134e4a'/><text x='50' y='70' font-size='52' text-anchor='middle' font-family='sans-serif'>🎮</text></svg>">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root {
+    --bg: #fafafa;
+    --card-bg: #ffffff;
+    --text: #1a1a2e;
+    --text-sub: #6b7280;
+    --border: #e5e7eb;
+    --shadow: 0 1px 3px rgba(0,0,0,.06);
+    --shadow-hover: 0 8px 24px rgba(0,0,0,.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111118;
+      --card-bg: #1c1c26;
+      --text: #f0f0f5;
+      --text-sub: #9ca3af;
+      --border: #2b2b38;
+      --shadow: 0 1px 3px rgba(0,0,0,.3);
+      --shadow-hover: 0 8px 24px rgba(0,0,0,.45);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+      system-ui, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  header { padding: 88px 0 56px; }
+  header h1 { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.02em; }
+  header p.tagline { margin-top: 12px; font-size: 1.05rem; color: var(--text-sub); max-width: 560px; }
+  header .links { margin-top: 20px; }
+  header .links a {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.9rem; color: var(--text-sub); text-decoration: none;
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 6px 14px; transition: all .15s ease;
+  }
+  header .links a:hover { color: var(--text); border-color: var(--text-sub); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding-bottom: 40px;
+  }
+  .card {
+    display: flex; flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+  .banner {
+    height: 120px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+  }
+  .banner .glyph-text { font-weight: 900; color: rgba(255,255,255,.92); font-size: 2.6rem; letter-spacing: -0.02em; }
+  .card-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+  .card-body h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; }
+  .card-body p { margin-top: 6px; font-size: 0.9rem; color: var(--text-sub); flex: 1; }
+  .card-meta { margin-top: 14px; display: flex; align-items: center; justify-content: space-between; }
+  .tag {
+    font-size: 0.72rem; font-weight: 600; color: var(--text-sub);
+    border: 1px solid var(--border); border-radius: 6px; padding: 2px 8px;
+  }
+  .domain { font-size: 0.75rem; color: var(--text-sub); opacity: .8; }
+
+  .b-holdem   { background: linear-gradient(135deg, #065f46 0%, #14532d 100%); }
+  .b-riddle   { background: linear-gradient(135deg, #4c1d95 0%, #1e1b4b 100%); }
+  .b-sky      { background: linear-gradient(135deg, #0e7490 0%, #1e3a8a 100%); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0 48px;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>개인 취미 프로젝트</h1>
+    <p class="tagline">재미로 만들어 본 게임과 퍼즐들.</p>
+    <div class="links">
+      <a href="https://github.com/MartinShin" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.shinhocheol.com">🧪 공개 웹 서비스</a>
+      <a href="https://snu-projects.vercel.app" target="_blank" rel="noopener">🎓 서울대 프로젝트</a>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <a class="card" href="https://www.shinhocheol.com/holdem" target="_blank" rel="noopener">
+      <div class="banner b-holdem"><span class="glyph-text">♠</span></div>
+      <div class="card-body">
+        <h2>홀덤 아레나</h2>
+        <p>브라우저에서 바로 즐기는 텍사스 홀덤 포커 게임.</p>
+        <div class="card-meta"><span class="tag">게임</span><span class="domain">shinhocheol.com/holdem</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.shinhocheol.com/skyscrapers" target="_blank" rel="noopener">
+      <div class="banner b-sky"><span class="glyph-text">🏙</span></div>
+      <div class="card-body">
+        <h2>스카이스크래퍼</h2>
+        <p>테두리 숫자만큼 빌딩이 보이게 채우는 논리 퍼즐. 4×4부터 9×9까지, 모든 문제는 유일해가 보장된다.</p>
+        <div class="card-meta"><span class="tag">퍼즐 게임</span><span class="domain">shinhocheol.com/skyscrapers</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.shinhocheol.com/riddle" target="_blank" rel="noopener">
+      <div class="banner b-riddle"><span class="glyph-text">?</span></div>
+      <div class="card-body">
+        <h2>온라인 리들</h2>
+        <p>텍스트 기반 방탈출 퍼즐. 문제의 정답을 찾아야 숨겨진 다음 페이지로 넘어갈 수 있다.</p>
+        <div class="card-meta"><span class="tag">퍼즐 게임</span><span class="domain">shinhocheol.com/riddle</span></div>
+      </div>
+    </a>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Martin Shin</span>
+    <span>Built with Claude Code · <a href="https://github.com/MartinShin" target="_blank" rel="noopener">github.com/MartinShin</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
